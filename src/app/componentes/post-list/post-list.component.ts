@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { PostesService } from '../services/postes.service'
 @Component({
   selector: 'app-post-list',
   templateUrl: './post-list.component.html',
@@ -7,12 +7,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PostListComponent implements OnInit {
 
-  constructor() { }
+  constructor(public postesService: PostesService) {
+    console.log('===constructor ===')
+  }
 
   ngOnInit() {
+    this.getPostes()
+
+  }
+
+  getPostes() {
+
+  }
+
+  addPost() {
+    this.getPostes();
   }
 
 
-  
+
+
 
 }

@@ -1,13 +1,17 @@
 import { Component, OnInit } from '@angular/core';
-import { PostesService } from '../services/postes.service'
+import { PostesService } from '../services/postes.service';
+import { Poste } from '../models/poste';
+import { Router } from '@angular/router'
+
+
 @Component({
   selector: 'app-post-list',
   templateUrl: './post-list.component.html',
   styleUrls: ['./post-list.component.css']
 })
 export class PostListComponent implements OnInit {
-  postes: any[] = [];
-  constructor(public postesService: PostesService) {
+  postes: Poste[] = [];
+  constructor(public router: Router, public postesService: PostesService) {
     console.log('===constructor ===')
   }
 
@@ -24,7 +28,7 @@ export class PostListComponent implements OnInit {
     //   console.error("===error===", error);
     // })
 
-    this.postesService.getPostes().toPromise().then((data:any) => {
+    this.postesService.getPostes().toPromise().then((data: Poste[]) => {
       this.postes = data;
       console.log("===data===", data);
     }).catch(error => {
@@ -41,5 +45,11 @@ export class PostListComponent implements OnInit {
 
 
 
+  onDelete(id: number) {
+    this.postes = this.postes.filter(poste => poste.id !== id)
+  }
 
+  navigateToForm(id: number) {
+    this.router.navigate(['post-form']);
+  }
 }

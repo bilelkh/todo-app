@@ -1,1 +1,22 @@
-{{ postes | json}}
+<!-- <app-post-form></app-post-form> -->
+
+<table class="table">
+  <tr>
+    <td>id</td>
+    <td>title</td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tbody>
+    <ng-container *ngIf="postes.length>0">
+      <tr *ngFor="let post of postes">
+        <td>{{post.id}}</td>
+        <td>{{post.title}}</td>
+        <!-- <td><a routerLink="/post-form">Edit</a></td> -->
+        <td><button (click)="navigateToForm(post.id)">Edit</button></td>
+        <td><button (click)="onDelete(post.id)">delete</button></td>
+      </tr>
+    </ng-container>
+    <div *ngIf="postes.length==0">list vide </div>
+  </tbody>
+</table>

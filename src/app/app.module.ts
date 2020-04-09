@@ -7,7 +7,10 @@ import { HomeComponent } from './home/home.component';
 import { PostFormComponent } from './componentes/post-form/post-form.component';
 import { PostListComponent } from './componentes/post-list/post-list.component';
 import { AppRoutingModule } from './app-routing.module';
-import { PostesService } from './componentes/services/postes.service'
+import { PostesService } from './componentes/services/postes.service';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,7 +21,9 @@ import { PostesService } from './componentes/services/postes.service'
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [PostesService],
   bootstrap: [AppComponent]

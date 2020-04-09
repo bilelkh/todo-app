@@ -1,1 +1,18 @@
-<p>post-form works!</p>
+<form [formGroup]="postForm" (ngSubmit)="submit()">
+  <label>id</label>
+  <input formControlName="id" type="number">
+  <span *ngIf="submitted && postForm.controls.id.errors?.required" class="text-danger">ce champ est
+    obligatoire</span>
+  <label>title</label>
+  <input formControlName="title" type="text">
+  <span *ngIf="submitted &&  postForm.controls.title.errors && postForm.controls.title.errors.required"
+    class="text-danger">ce champ est
+    obligatoire</span>
+  <label>email</label>
+  <input formControlName="email" type="text">
+  <span *ngIf="submitted &&  postForm.controls.email.errors && postForm.controls.email.errors.required"
+    class="text-danger">ce champ est obligatoire</span>
+  <button class="mb-2" type="submit">Submit</button>
+  <!-- <button class="mb-2"  [disabled]="!postForm.valid"  type="submit">Submit</button> -->
+  <button type="reset">Reset</button>
+</form>

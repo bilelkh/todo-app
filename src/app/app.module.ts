@@ -2,13 +2,20 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-
+import { HomeComponent } from './home/home.component';
+import { PostFormComponent } from './componentes/post-form/post-form.component';
+import { PostListComponent } from './componentes/post-list/post-list.component';
+import { AppRoutingModule } from './app-routing.module'
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HomeComponent,
+    PostFormComponent,
+    PostListComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
